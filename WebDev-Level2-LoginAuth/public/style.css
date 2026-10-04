@@ -1,0 +1,64 @@
+/* Layout: grey page, one centred white card for all three pages. */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f4f9;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+/* The auth card. */
+.card {
+    background: #fff;
+    width: 100%;
+    max-width: 400px;
+    padding: 1.75rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+}
+
+h1 { margin: 0; font-size: 1.5rem; }
+.sub { color: #666; margin: 0.4rem 0 1.25rem; }
+
+/* Stacked labels: text above each input. */
+form label { display: block; margin-bottom: 0.9rem; font-size: 0.95rem; }
+
+form input {
+    display: block;
+    width: 100%;
+    margin-top: 0.3rem;
+    padding: 0.6rem 0.7rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+form input:focus { outline: 2px solid #333; border-color: #333; }
+
+/* Primary button: full-width black. */
+form button, .card > button {
+    width: 100%;
+    padding: 0.65rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    background: #333;
+    color: #fff;
+    cursor: pointer;
+}
+
+form button:hover, .card > button:hover { background: #111; }
+
+/* Error (red) and success (green) message lines. */
+.error { color: #c32f1c; font-size: 0.9rem; }
+.ok { color: #1a7f37; font-size: 0.9rem; }
+
+/* "No account? Register" line. */
+.switch { text-align: center; margin: 1rem 0 0; font-size: 0.95rem; }
+.switch a { color: #333; font-weight: 600; }

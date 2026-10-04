@@ -1,3 +1,4 @@
+/* Page frame: centre the calculator in the viewport. */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f4f9;
@@ -8,6 +9,7 @@ body {
     margin: 0;
 }
 
+/* Button grid: 4 columns, 1 display row + 5 button rows. */
 .calculator {
     display: grid;
     grid-template-columns: repeat(4, 80px);
@@ -19,6 +21,7 @@ body {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
+/* Screen: spans all 4 columns, right-aligned two-line readout. */
 .display {
     grid-column: 1 / -1;
     background-color: #222;
@@ -33,16 +36,19 @@ body {
     margin-bottom: 10px;
 }
 
+/* Top line: the running expression, e.g. "5 +". */
 .previous-operand {
     color: rgba(255, 255, 255, 0.75);
     font-size: 1.2rem;
 }
 
+/* Bottom line: the number being typed, or the result. */
 .current-operand {
     color: white;
     font-size: 2rem;
 }
 
+/* Base button look. */
 button {
     cursor: pointer;
     font-size: 1.5rem;
@@ -56,8 +62,8 @@ button:hover {
     background-color: #ddd;
 }
 
+/* Clear: red, spans two columns. */
 #clear {
-    grid-column: span 2;
     background-color: #ff5f56;
     color: white;
 }
@@ -66,6 +72,7 @@ button:hover {
     background-color: #e04e45;
 }
 
+/* Delete: amber. */
 #delete {
     background-color: #ffbd2e;
 }
@@ -74,24 +81,26 @@ button:hover {
     background-color: #dfa726;
 }
 
-#divide, #multiply, #subtract, #add, #equals {
+/* Operators + equals: orange, except equals which is green. */
+#divide, #multiply, #subtract, #add {
     background-color: #ff9f0a;
     color: white;
 }
 
-#divide:hover, #multiply:hover, #subtract:hover, #add:hover, #equals:hover {
+#divide:hover, #multiply:hover, #subtract:hover, #add:hover {
     background-color: #e68a00;
 }
 
 #equals {
-    grid-row: span 2;
     background-color: #28c840;
+    color: white;
 }
 
 #equals:hover {
     background-color: #21a333;
 }
 
+/* Utility: let a button occupy two grid columns (AC and 0). */
 .span-two {
     grid-column: span 2;
 }

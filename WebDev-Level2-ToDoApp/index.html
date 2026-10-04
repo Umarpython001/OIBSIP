@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Phone-friendly scaling -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Single centred card holding the whole app -->
+    <main class="app">
+        <h1>My Tasks</h1>
+
+        <!-- New-task row: text field + Add button -->
+        <form id="task-form" class="add-row">
+            <input id="task-input" type="text" placeholder="What needs doing?"
+                   maxlength="200" autocomplete="off" aria-label="New task text">
+            <button type="submit">Add Task</button>
+        </form>
+        <!-- Validation / feedback line under the form -->
+        <p id="form-error" class="error" role="alert" hidden></p>
+
+        <!-- Pending section: tasks not yet done -->
+        <section aria-labelledby="pending-title">
+            <h2 id="pending-title">Pending (<span id="pending-count">0</span>)</h2>
+            <ul id="pending-list" class="task-list"></ul>
+            <!-- Shown only when the pending list is empty -->
+            <p id="pending-empty" class="empty">Nothing pending. Add a task above.</p>
+        </section>
+
+        <!-- Completed section: finished tasks -->
+        <section aria-labelledby="completed-title">
+            <h2 id="completed-title">Completed (<span id="completed-count">0</span>)</h2>
+            <ul id="completed-list" class="task-list"></ul>
+            <!-- Shown only when the completed list is empty -->
+            <p id="completed-empty" class="empty">Nothing completed yet.</p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

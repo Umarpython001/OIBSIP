@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Phone-friendly scaling -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Centred auth card -->
+    <main class="card">
+        <h1>Create account</h1>
+        <p class="sub">Password needs 8+ characters and at least 1 number.</p>
+
+        <!-- Registration form: validated here for speed, enforced on the server -->
+        <form id="register-form" novalidate>
+            <label>Username
+                <input id="reg-name" type="text" autocomplete="username" required>
+            </label>
+            <label>Email
+                <input id="reg-email" type="email" autocomplete="email" required>
+            </label>
+            <label>Password
+                <input id="reg-pass" type="password" autocomplete="new-password" required>
+            </label>
+            <p id="reg-error" class="error" role="alert" hidden></p>
+            <p id="reg-ok" class="ok" role="status" hidden></p>
+            <button type="submit">Register</button>
+        </form>
+
+        <p class="switch">Have an account? <a href="index.html">Login</a></p>
+    </main>
+
+    <script src="auth.js"></script>
+    <script>
+        // Page wiring: submit -> POST /api/register via Auth.handleRegister.
+        document.getElementById('register-form').addEventListener('submit', Auth.handleRegister);
+    </script>
+</body>
+</html>

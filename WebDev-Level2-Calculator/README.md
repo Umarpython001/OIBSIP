@@ -22,10 +22,9 @@ A fully functional, browser-based calculator built using HTML5, CSS3, and Vanill
 
 ## 📂 Project Structure
 
-- `index.html`: The main HTML file containing the calculator structure.
-- `style.css`: Styles for the calculator layout and design.
-- `script.js`: Core logic for arithmetic operations and UI updates.
-- `instructions.txt`: The original requirements for the project.
+- `index.html`: calculator structure (display + button grid).
+- `style.css`: layout and colours (CSS Grid).
+- `script.js`: arithmetic logic and UI updates.
 
 ## 📖 How to Run
 

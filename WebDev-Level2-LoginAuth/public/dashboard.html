@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Phone-friendly scaling -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Protected page: the server redirects to login when there is no
+         session, and the script below double-checks via GET /api/me. -->
+    <main class="card">
+        <h1 id="dash-title">Dashboard</h1>
+        <p class="sub" id="dash-sub">Checking your session…</p>
+        <button id="logout-btn" type="button">Logout</button>
+    </main>
+
+    <script src="auth.js"></script>
+    <script>
+        // Page wiring: guard + greeting + logout (all async — server round-trips).
+        (async () => {
+            const user = await Auth.requireSession(); // bounces to login when logged out
+            if (!user) return; // redirect is already underway
+            document.getElementById('dash-title').textContent = `Hello, ${user.name}`;
+            document.getElementById('dash-sub').textContent = `Logged in as ${user.email}.`;
+            document.getElementById('logout-btn').addEventListener('click', Auth.logout);
+        })();
+    </script>
+</body>
+</html>

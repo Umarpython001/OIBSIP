@@ -1,0 +1,109 @@
+/* Layout: grey page, one centred white card. */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f4f9;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 2rem 1rem;
+    box-sizing: border-box;
+}
+
+/* The card holding the whole app. */
+.app {
+    background: #fff;
+    width: 100%;
+    max-width: 560px;
+    height: fit-content;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+}
+
+h1 { margin: 0 0 1rem; font-size: 1.6rem; }
+h2 { font-size: 1.1rem; margin: 1.5rem 0 0.5rem; color: #333; }
+
+/* New-task row: input stretches, button stays fixed. */
+.add-row { display: flex; gap: 0.5rem; }
+
+.add-row input {
+    flex: 1;
+    padding: 0.6rem 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.add-row input:focus { outline: 2px solid #28c840; border-color: #28c840; }
+
+.add-row button {
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    background: #28c840;
+    color: #fff;
+    cursor: pointer;
+}
+
+.add-row button:hover { background: #21a333; }
+
+/* Error line under the form. */
+.error { color: #c32f1c; font-size: 0.9rem; margin: 0.5rem 0 0; }
+
+/* Task lists: no bullets, one card per task. */
+.task-list { list-style: none; margin: 0.5rem 0 0; padding: 0; }
+
+.task-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid #e3e3e3;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    background: #fafafa;
+}
+
+/* Task text fills the row; struck through when done. */
+.task-text { flex: 1; word-break: break-word; }
+.task-list.completed .task-text,
+li.done .task-text { text-decoration: line-through; color: #777; }
+
+/* Small grey timestamp under each task. */
+.task-time { display: block; font-size: 0.75rem; color: #888; }
+
+/* Inline edit field (replaces the text while editing). */
+.task-edit {
+    flex: 1;
+    padding: 0.4rem 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #28c840;
+    border-radius: 6px;
+}
+
+/* Small action buttons: complete / edit / delete. */
+.task-list button {
+    border: 1px solid #ccc;
+    background: #fff;
+    border-radius: 6px;
+    padding: 0.3rem 0.55rem;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.task-list button:hover { background: #eee; }
+
+/* Delete is red to signal danger. */
+.btn-delete { color: #c32f1c; border-color: #c32f1c; }
+.btn-delete:hover { background: #fdecea; }
+
+/* Friendly placeholder when a list has no items. */
+.empty { color: #888; font-style: italic; margin: 0.5rem 0 0; }
+
+/* Narrow phones: stack input and button. */
+@media (max-width: 420px) {
+    .add-row { flex-direction: column; }
+}

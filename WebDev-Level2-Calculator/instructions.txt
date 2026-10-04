@@ -1,0 +1,14 @@
+Objective: Build a fully functional browser-based calculator capable of performing basic arithmetic operations with a user-friendly button interface.
+Tech Stack: HTML5, CSS3, JavaScript (Vanilla)
+Feature Checklist:
+[ ] Display screen that shows the current input and result
+[ ] Numeric buttons (0–9) and a decimal point button
+[ ] Operator buttons: addition (+), subtraction (−), multiplication (×), division (÷)
+[ ] Equals (=) button to evaluate the expression
+[ ] Clear (C) button to reset the display
+[ ] Backspace/Delete button to remove the last entered character
+[ ] Prevent division-by-zero: display an error message instead of crashing
+[ ] Operator chaining: allow sequential operations (e.g., 5 + 3 × 2) without requiring a full reset
+[ ] CSS Grid used for button layout alignment
+[ ] Event listeners on all buttons (no inline onclick attributes in HTML)
+Self-Sourcing Guideline: Search "vanilla JavaScript calculator project tutorial" on YouTube. Reference MDN Docs for addEventListener, switch statements, and parseFloat(). Avoid using eval() — build your own logic using variables and conditional statements.

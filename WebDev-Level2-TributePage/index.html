@@ -1,79 +1,192 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tribute to Alan Turing</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Alan Turing: A Tribute</title>
+    <meta name="description" content="A tribute to Alan Turing (1912–1954), who imagined the computer before anyone could build one.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="running-head">
+        <p class="running-head__title">A. M. Turing <span aria-hidden="true">·</span> 1912–1954</p>
+        <nav aria-label="Sections">
+            <ul>
+                <li><a href="#life">Life</a></li>
+                <li><a href="#words">In his words</a></li>
+                <li><a href="#timeline">Timeline</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <main id="main">
-        <header>
-            <h1 id="title">Alan Turing</h1>
-            <p id="tagline">The father of theoretical computer science and artificial intelligence</p>
-        </header>
+        <section class="hero" aria-labelledby="title">
+            <div class="hero__text">
+                <h1 id="title">Alan Turing</h1>
+                <p id="tagline">The mathematician who imagined the computer before anyone could build one.</p>
+            </div>
 
-        <div id="img-div">
-            <img id="image" src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Alan_Turing_Aged_16.jpg" alt="A young Alan Turing">
-            <p id="img-caption">Alan Turing, a polymath whose work laid the foundations for the modern computer.</p>
-        </div>
+            <div class="hero__table">
+                <table class="state-table" id="state-table">
+                    <caption>His first machine, from <cite>On Computable Numbers</cite> (1936). It is running below.</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Configuration</th>
+                            <th scope="col">Symbol</th>
+                            <th scope="col">Operations</th>
+                            <th scope="col">Next</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-state="b"><td><span class="frak">b</span></td><td>None</td><td>P0, R</td><td><span class="frak">c</span></td></tr>
+                        <tr data-state="c"><td><span class="frak">c</span></td><td>None</td><td>R</td><td><span class="frak">e</span></td></tr>
+                        <tr data-state="e"><td><span class="frak">e</span></td><td>None</td><td>P1, R</td><td><span class="frak">f</span></td></tr>
+                        <tr data-state="f"><td><span class="frak">f</span></td><td>None</td><td>R</td><td><span class="frak">b</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <section id="tribute-info">
-            <h2>A Life of Genius</h2>
-            <div class="bio-content">
-                <p>
-                    Alan Mathison Turing (1912–1954) was an English mathematician, computer scientist, logician, cryptanalyst, philosopher, and theoretical biologist. He is widely considered to be the father of theoretical computer science and artificial intelligence. Turing first gained prominence during World War II for his work at Bletchley Park, where he led the effort to crack the German Enigma code.
-                </p>
-                <p>
-                    His conceptualization of the "Turing Machine" provided a formalization of the concepts of algorithm and computation, proving that a machine could be designed to simulate any computer algorithm. This revolutionary idea became the blueprint for the general-purpose computers we use today. Turing's ability to bridge the gap between abstract mathematics and practical engineering was unparalleled.
-                </p>
-                <p>
-                    Beyond cryptography and computation, Turing was fascinated by morphogenesis—the process by which biological patterns, such as the stripes of a zebra or the spirals of a shell, develop. His late-career work in mathematical biology continues to influence the field today, showing a mind that never ceased to explore the fundamental mysteries of nature.
-                </p>
-                <p>
-                    Despite his monumental contributions to humanity and the Allied victory in World War II, Turing suffered persecution for his homosexuality, which was a crime in the UK at the time. He was posthumously pardoned by Queen Elizabeth II in 2013, and today he is celebrated not only as a scientific titan but as a symbol of resilience and the fight for human rights.
-                </p>
+            <figure class="plate" id="img-div">
+                <img id="image" src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Alan_Turing_Aged_16.jpg" width="675" height="919" alt="Black-and-white passport photograph of Alan Turing aged sixteen, in jacket and tie, looking directly at the camera.">
+                <figcaption id="img-caption"><span class="plate__label">Plate I.</span> Turing at sixteen, c. 1928, eight years before he described the universal machine.</figcaption>
+            </figure>
+
+            <div class="machine" aria-label="A working Turing machine">
+                <div class="tape" id="tape">
+                    <ol class="tape__track" id="tape-track" aria-label="Tape">
+                        <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                        <li>0</li><li></li><li>1</li><li></li><li>0</li><li></li><li>1</li><li></li><li>0</li><li></li><li>1</li><li></li>
+                        <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                    </ol>
+                    <div class="tape__head" aria-hidden="true"></div>
+                </div>
+                <div class="machine__bar">
+                    <p class="machine__readout" id="readout">The tape reads 0 1 0 1 0 1, one square at a time.</p>
+                    <div class="machine__controls" id="controls" hidden>
+                        <button type="button" id="btn-run" aria-pressed="false">Run</button>
+                        <button type="button" id="btn-step">Step</button>
+                        <button type="button" id="btn-reset">Reset</button>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="quote-section">
-            <blockquote cite="https://en.wikipedia.org/wiki/Alan_Turing">
-                <p>"Sometimes it is the people no one can imagine anything of who do the things no one can imagine."</p>
-                <cite>— Attributed to Alan Turing</cite>
-            </blockquote>
+        <section class="life" id="life" aria-labelledby="life-title">
+            <h2 id="life-title">A life of genius</h2>
+            <div class="life__body" id="tribute-info">
+                <div class="life__row">
+                    <p>Alan Mathison Turing (1912–1954) was an English mathematician, computer scientist, logician, cryptanalyst, philosopher, and theoretical biologist. He is widely considered to be the father of theoretical computer science and artificial intelligence. Turing first gained prominence during the Second World War for his work at Bletchley Park, where he played a leading part in breaking the German Enigma ciphers.</p>
+                    <aside class="note"><span class="note__mark">Born</span> 23 June 1912, Maida Vale, London. <span class="note__mark">Died</span> 7 June 1954, Wilmslow, Cheshire, aged 41.</aside>
+                </div>
+                <div class="life__row">
+                    <p>His conceptualization of the “Turing machine” provided a formalization of the concepts of algorithm and computation, and showed that a single universal machine could carry out the work of any other. This revolutionary idea became the blueprint for the general-purpose computers we use today. Turing’s ability to bridge the gap between abstract mathematics and practical engineering was unparalleled.</p>
+                    <aside class="note">The same 1936 paper settled Hilbert’s <i>Entscheidungsproblem</i>: no mechanical method can decide the truth of every mathematical statement. The machine at the top of this page is its first worked example.</aside>
+                </div>
+                <div class="life__row">
+                    <p>Beyond cryptography and computation, Turing was fascinated by morphogenesis, the process by which biological patterns such as the stripes of a zebra or the spirals of a shell develop. His late-career work in mathematical biology continues to influence the field today, showing a mind that never ceased to explore the fundamental mysteries of nature.</p>
+                    <aside class="note"><cite>The Chemical Basis of Morphogenesis</cite>, Philosophical Transactions of the Royal Society B, 1952. Patterns formed this way are still called Turing patterns.</aside>
+                </div>
+                <div class="life__row">
+                    <p>Despite his monumental contributions to humanity and to the Allied victory, Turing was prosecuted in 1952 for his homosexuality, which was then a crime in the UK. He was posthumously pardoned by Queen Elizabeth II in 2013, and today he is celebrated not only as a scientific titan but as a symbol of resilience and of the fight for human rights.</p>
+                    <aside class="note">The British government apologised publicly in 2009. The 2017 “Alan Turing law” extended pardons to thousands of men convicted under the same laws.</aside>
+                </div>
+            </div>
         </section>
 
-        <section id="timeline">
-            <h2>Key Achievements & Milestones</h2>
-            <ul class="achievement-list">
-                <li>
-                    <div class="year">1936</div>
-                    <div class="event">Published "On Computable Numbers," introducing the Turing Machine and the concept of universal computation.</div>
-                </li>
-                <li>
-                    <div class="year">1939-1945</div>
-                    <div class="event">Developed the Bombe at Bletchley Park, which was instrumental in decrypting Enigma-encrypted messages.</div>
-                </li>
-                <li>
-                    <div class="year">1945</div>
-                    <div class="event">Designed the Automatic Computing Engine (ACE), one of the first designs for a stored-program computer.</div>
-                </li>
-                <li>
-                    <div class="year">1950</div>
-                    <div class="event">Proposed the "Turing Test" in his paper "Computing Machinery and Intelligence," defining a standard for machine intelligence.</div>
-                </li>
-                <li>
-                    <div class="year">1952</div>
-                    <div class="event">Published groundbreaking work on morphogenesis, explaining biological patterns through chemical reactions.</div>
-                </li>
-            </ul>
+        <section class="words" id="words" aria-labelledby="words-title">
+            <h2 id="words-title" class="visually-hidden">In his words</h2>
+            <figure id="quote-section">
+                <blockquote cite="https://doi.org/10.1093/mind/LIX.236.433">
+                    <p>We can only see a short distance ahead, but we can see plenty there that needs to be done.</p>
+                </blockquote>
+                <figcaption>
+                    <span class="source-status">His own words</span>
+                    <span>Alan Turing, closing sentence of <cite>Computing Machinery and Intelligence</cite>, <i>Mind</i>, 1950.</span>
+                </figcaption>
+            </figure>
+            <div class="words__aside">
+                <p><span class="source-status source-status--muted">Often misattributed</span> “Sometimes it is the people no one can imagine anything of who do the things no one can imagine” is a line from the 2014 film <cite>The Imitation Game</cite>, not from Turing’s writing.</p>
+            </div>
+        </section>
+
+        <section class="timeline" id="timeline" aria-labelledby="timeline-title">
+            <div class="timeline__inner">
+            <div class="timeline__intro">
+                <h2 id="timeline-title">Key achievements, one cell per year</h2>
+                <p>His life laid out as a tape: forty-three cells for forty-three years. A cell is marked wherever the work left a mark, and the red head rests on 1936.</p>
+            </div>
+
+            <ol class="life-tape">
+                <li class="yr is-marked"><span class="yr__cell">1</span><span class="yr__year">1912</span><div class="yr__event"><h3>Born in London</h3><p>Born on 23 June in Maida Vale, the second son of a civil servant in the Indian Civil Service.</p></div></li>
+                <li class="yr" aria-hidden="true"><span class="yr__cell"></span><span class="yr__year">1913</span></li>
+                <li class="yr" aria-hidden="true"><span class="yr__cell"></span><span class="yr__year">1914</span></li>
+                <li class="yr" aria-hidden="true"><span class="yr__cell"></span><span class="yr__year">1915</span></li>
+                <li class="yr" aria-hidden="true"><span class="yr__cell"></span><span class="yr__year">1916</span></li>
+                <li class="yr" aria-hidden="true"><span class="yr__cell"></span><span class="yr__year">1917</span></li>
+                <li class="yr" aria-hidden="true"><span class="yr__cell"></span><span class="yr__year">1918</span></li>
+                <li class="yr" aria-hidden="true"><span class="yr__cell"></span><span class="yr__year">1919</span></li>
+                <li class="yr" aria-hidden="true"><span class="yr__cell"></span><span class="yr__year">1920</span></li>
+                <li class="yr" aria-hidden="true"><span class="yr__cell"></span><span class="yr__year">1921</span></li>
+                <li class="yr" aria-hidden="true"><span class="yr__cell"></span><span class="yr__year">1922</span></li>
+                <li class="yr" aria-hidden="true"><span class="yr__cell"></span><span class="yr__year">1923</span></li>
+                <li class="yr" aria-hidden="true"><span class="yr__cell"></span><span class="yr__year">1924</span></li>
+                <li class="yr" aria-hidden="true"><span class="yr__cell"></span><span class="yr__year">1925</span></li>
+                <li class="yr" aria-hidden="true"><span class="yr__cell"></span><span class="yr__year">1926</span></li>
+                <li class="yr" aria-hidden="true"><span class="yr__cell"></span><span class="yr__year">1927</span></li>
+                <li class="yr" aria-hidden="true"><span class="yr__cell"></span><span class="yr__year">1928</span></li>
+                <li class="yr" aria-hidden="true"><span class="yr__cell"></span><span class="yr__year">1929</span></li>
+                <li class="yr" aria-hidden="true"><span class="yr__cell"></span><span class="yr__year">1930</span></li>
+                <li class="yr is-marked"><span class="yr__cell">1</span><span class="yr__year">1931</span><div class="yr__event"><h3>King’s College, Cambridge</h3><p>Goes up to read mathematics; graduates with distinction in 1934 and is elected a Fellow of King’s at twenty-two.</p></div></li>
+                <li class="yr" aria-hidden="true"><span class="yr__cell"></span><span class="yr__year">1932</span></li>
+                <li class="yr" aria-hidden="true"><span class="yr__cell"></span><span class="yr__year">1933</span></li>
+                <li class="yr" aria-hidden="true"><span class="yr__cell"></span><span class="yr__year">1934</span></li>
+                <li class="yr" aria-hidden="true"><span class="yr__cell"></span><span class="yr__year">1935</span></li>
+                <li class="yr is-marked is-major is-head"><span class="yr__cell">1</span><span class="yr__year">1936</span><div class="yr__event"><h3>On Computable Numbers</h3><p>Publishes “On Computable Numbers”, introducing the Turing machine and the concept of universal computation.</p></div></li>
+                <li class="yr" aria-hidden="true"><span class="yr__cell"></span><span class="yr__year">1937</span></li>
+                <li class="yr is-marked"><span class="yr__cell">1</span><span class="yr__year">1938</span><div class="yr__event"><h3>Doctorate at Princeton</h3><p>Completes his PhD under the logician Alonzo Church.</p></div></li>
+                <li class="yr is-marked is-major is-span-start"><span class="yr__cell">1</span><span class="yr__year">1939</span><div class="yr__event"><h3>Bletchley Park, 1939–1945</h3><p>Designs the Bombe, the electromechanical machine that was instrumental in decrypting Enigma messages, and leads Hut 8 against German naval Enigma.</p></div></li>
+                <li class="yr is-marked is-span" aria-hidden="true"><span class="yr__cell">1</span><span class="yr__year">1940</span></li>
+                <li class="yr is-marked is-span" aria-hidden="true"><span class="yr__cell">1</span><span class="yr__year">1941</span></li>
+                <li class="yr is-marked is-span" aria-hidden="true"><span class="yr__cell">1</span><span class="yr__year">1942</span></li>
+                <li class="yr is-marked is-span" aria-hidden="true"><span class="yr__cell">1</span><span class="yr__year">1943</span></li>
+                <li class="yr is-marked is-span" aria-hidden="true"><span class="yr__cell">1</span><span class="yr__year">1944</span></li>
+                <li class="yr is-marked is-major is-span-end"><span class="yr__cell">1</span><span class="yr__year">1945</span><div class="yr__event"><h3>The Automatic Computing Engine</h3><p>Designs the ACE at the National Physical Laboratory, one of the first complete designs for a stored-program computer.</p></div></li>
+                <li class="yr is-marked"><span class="yr__cell">1</span><span class="yr__year">1946</span><div class="yr__event"><h3>OBE</h3><p>Appointed OBE for wartime service that stayed secret for decades.</p></div></li>
+                <li class="yr" aria-hidden="true"><span class="yr__cell"></span><span class="yr__year">1947</span></li>
+                <li class="yr is-marked"><span class="yr__cell">1</span><span class="yr__year">1948</span><div class="yr__event"><h3>Manchester</h3><p>Joins the University of Manchester and writes software for the Manchester computers.</p></div></li>
+                <li class="yr" aria-hidden="true"><span class="yr__cell"></span><span class="yr__year">1949</span></li>
+                <li class="yr is-marked is-major"><span class="yr__cell">1</span><span class="yr__year">1950</span><div class="yr__event"><h3>The imitation game</h3><p>Proposes what is now called the Turing test in “Computing Machinery and Intelligence”, setting a standard for machine intelligence.</p></div></li>
+                <li class="yr is-marked"><span class="yr__cell">1</span><span class="yr__year">1951</span><div class="yr__event"><h3>Fellow of the Royal Society</h3><p>Elected FRS, Britain’s highest scientific honour.</p></div></li>
+                <li class="yr is-marked is-major"><span class="yr__cell">1</span><span class="yr__year">1952</span><div class="yr__event"><h3>Morphogenesis, and prosecution</h3><p>Publishes groundbreaking work explaining biological patterns through chemical reactions. The same year he is convicted of “gross indecency” and forced to undergo hormone treatment.</p></div></li>
+                <li class="yr" aria-hidden="true"><span class="yr__cell"></span><span class="yr__year">1953</span></li>
+                <li class="yr is-marked is-end"><span class="yr__cell">1</span><span class="yr__year">1954</span><div class="yr__event"><h3>Death</h3><p>Dies on 7 June at his home in Wilmslow, aged 41. The inquest recorded suicide by cyanide poisoning; some biographers have questioned that verdict.</p></div></li>
+            </ol>
+
+            <div class="afterward">
+                <h3 class="afterward__title">The tape does not stop</h3>
+                <ol class="afterward__list">
+                    <li><span class="yr__year">2009</span><span>The British government issues a public apology.</span></li>
+                    <li><span class="yr__year">2013</span><span>Royal pardon from Queen Elizabeth II.</span></li>
+                    <li><span class="yr__year">2017</span><span>The “Alan Turing law” pardons thousands of others.</span></li>
+                    <li><span class="yr__year">2021</span><span>His portrait appears on the Bank of England £50 note.</span></li>
+                </ol>
+            </div>
+            </div>
         </section>
     </main>
-    <footer>
-        <p>Built with &hearts; as a tribute to a visionary mind.</p>
+
+    <footer class="colophon">
+        <div class="colophon__inner">
+        <p>A tribute to A. M. Turing, made for the Oasis Infobyte Web Development Level 2 task.</p>
+        <p>Portrait: public domain, via <a href="https://commons.wikimedia.org/wiki/File:Alan_Turing_Aged_16.jpg">Wikimedia Commons</a>. The machine is Example I from section 3 of Turing’s 1936 paper; configurations are set in Fraktur, as he wrote them.</p>
+        </div>
     </footer>
+
+    <script src="script.js" defer></script>
 </body>
 </html>
